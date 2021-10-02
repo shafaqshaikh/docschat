@@ -150,7 +150,7 @@ function TherapyPlanDetails({ navigation, route }) {
 
       <View
         style={{
-          position: "sticky",
+          position: "absolute",
           bottom: 0,
           borderTopWidth: 1,
           borderStyle: "solid",
@@ -192,7 +192,7 @@ const styles = StyleSheet.create({
   exper: {
     //fontFamily: 'Nunito-SemiBold',
     paddingTop: 2,
-    color: "rgb(34, 47, 45)",
+    // color: "rgb(34, 47, 45)",
     letterSpacing: 0.2,
   },
   buttonStyle: {

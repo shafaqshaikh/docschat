@@ -59,7 +59,7 @@ function TherapyPlanCheckout({ navigation }) {
                 }}
               >
                 <Text
-                  style={{ color: "white", paddingTop: 3, paddingBottom: 3 }}
+                  style={{ color: "#c1c1c1", paddingTop: 3, paddingBottom: 3 }}
                 >
                   Checkout
                 </Text>

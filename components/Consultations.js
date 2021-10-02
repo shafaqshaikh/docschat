@@ -679,7 +679,7 @@ const styles = StyleSheet.create({
     marginLeft: 15,
     borderRadius: 20,
     fontSize: 13,
-    fontFamily: "Nunito",
+    //fontFamily: "Nunito",
   },
   inputStyle: {
     borderStyle: "solid",

@@ -176,7 +176,7 @@ class TimeSlot extends Component {
                 textAlign: "center",
                 margin: "auto",
                 fontSize: 17,
-                fontFamily: "Nunito",
+                //fontFamily: "Nunito",
                 color: "white",
               }}
             >

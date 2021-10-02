@@ -99,7 +99,7 @@ class TherapyPlan extends Component {
                   plan3: false,
                 });
               }}
-              rippleColor="rgb(112 173 83)"
+              //rippleColor="rgb(112 173 83)"
               style={this.state.plan1 == true ? styles.selected : styles.ripple}
             >
               <Row>
@@ -129,7 +129,7 @@ class TherapyPlan extends Component {
                   plan3: false,
                 });
               }}
-              rippleColor="rgb(112 173 83)"
+              //rippleColor="rgb(112 173 83)"
               style={this.state.plan2 == true ? styles.selected : styles.ripple}
             >
               <Row>
@@ -162,7 +162,7 @@ class TherapyPlan extends Component {
                   plan3: true,
                 });
               }}
-              rippleColor="rgb(112 173 83)"
+              //rippleColor="rgb(112 173 83)"
               style={this.state.plan3 == true ? styles.selected : styles.ripple}
             >
               <Row>
@@ -188,7 +188,7 @@ class TherapyPlan extends Component {
 
         <View
           style={{
-            position: "sticky",
+            position: "absolute",
             bottom: 0,
             borderTopWidth: 1,
             borderStyle: "solid",

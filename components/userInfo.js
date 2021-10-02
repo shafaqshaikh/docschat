@@ -70,6 +70,16 @@ class UserInfo extends Component {
     });
   }
 
+  componentDidMount() {
+    AsyncStorage.getItem("number").then((result) => {
+      if (result != null) {
+        this.setState({ mobile: result });
+      } else {
+        this.setState({ mobile: "" });
+      }
+    });
+  }
+
   handleOtpButton() {
     if (!this.state.mobile) {
       showMessage({
@@ -262,61 +272,72 @@ class UserInfo extends Component {
           textStyle={styles.spinnerTextStyle}
         />
         <View style={styles.centeredView}>
-          <Modal
-            animationType="slide"
-            transparent={true}
-            visible={this.state.modalVisible}
-            onRequestClose={() => {
-              this.setState({ modalVisible: !this.state.modalVisible });
-            }}
+          <KeyboardAvoidingView
+            style={{ flex: 1 }}
+            behavior={Platform.OS === "ios" ? "position" : null}
+            keyboardVerticalOffset={Platform.OS === "ios" ? 50 : 70}
           >
-            <View style={styles.centeredView}>
-              <View style={styles.modalView}>
-                <Pressable
-                  style={[styles.button]}
-                  onPress={() =>
-                    this.setState({ modalVisible: !this.state.modalVisible })
-                  }
-                >
-                  <Image
-                    style={{ height: 25, width: 25 }}
-                    source={require("../assets/close.png")}
-                  ></Image>
-                </Pressable>
-                {/* <Text style={styles.modalText}>Hello World!</Text> */}
-                <View style={{ flexDirection: "column", marginTop: 10 }}>
-                  <Text>Doctor Can Reach You For Consultation At</Text>
-                  <View style={{ padding: 15 }}>
-                    <TextInput
-                      style={styles.inputStyle}
-                      maxLength={10}
-                      onChangeText={(val) => (this.state.mobile = val)}
-                      underlineColorAndroid="#f000"
-                      placeholder="Mobile Number"
-                      keyboardType="numeric"
-                      placeholderTextColor="#8b9cb5"
-                      // ref={emailInputRef}
-                      returnKeyType="next"
-                      // onSubmitEditing={() =>
-                      //   passwordInputRef.current &&
-                      //   passwordInputRef.current.focus()
-                      // }
-                      blurOnSubmit={false}
-                    />
-                    <TouchableOpacity
-                      style={styles.buttonStyle}
-                      activeOpacity={0.5}
-                      onPress={() => {
-                        this.handleOtpButton();
-                      }}
+            <ScrollView>
+              <Modal
+                animationType="slide"
+                transparent={true}
+                visible={this.state.modalVisible}
+                onRequestClose={() => {
+                  this.setState({ modalVisible: !this.state.modalVisible });
+                }}
+              >
+                <View style={styles.centeredView}>
+                  <View style={styles.modalView}>
+                    <Pressable
+                      style={[styles.button]}
+                      onPress={() =>
+                        this.setState({
+                          modalVisible: !this.state.modalVisible,
+                        })
+                      }
                     >
-                      <Text style={styles.buttonTextStyle}>Submit</Text>
-                    </TouchableOpacity>
+                      <Image
+                        style={{ height: 25, width: 25 }}
+                        source={require("../assets/close.png")}
+                      ></Image>
+                    </Pressable>
+                    {/* <Text style={styles.modalText}>Hello World!</Text> */}
+                    <View style={{ flexDirection: "column", marginTop: 10 }}>
+                      <Text>Doctor Can Reach You For Consultation At</Text>
+                      <View style={{ padding: 15 }}>
+                        <TextInput
+                          style={styles.inputStyle}
+                          maxLength={10}
+                          onChangeText={(val) => (this.state.mobile = val)}
+                          underlineColorAndroid="#f000"
+                          placeholder="Mobile Number"
+                          keyboardType="numeric"
+                          placeholderTextColor="#8b9cb5"
+                          // ref={emailInputRef}
+                          returnKeyType="next"
+                          // onSubmitEditing={() =>
+                          //   passwordInputRef.current &&
+                          //   passwordInputRef.current.focus()
+                          // }
+                          blurOnSubmit={false}
+                        />
+                        <TouchableOpacity
+                          style={styles.buttonStyle}
+                          activeOpacity={0.5}
+                          onPress={() => {
+                            this.handleOtpButton();
+                          }}
+                        >
+                          <Text style={styles.buttonTextStyle}>Submit</Text>
+                        </TouchableOpacity>
+                      </View>
+                    </View>
                   </View>
                 </View>
-              </View>
-            </View>
-          </Modal>
+              </Modal>
+            </ScrollView>
+          </KeyboardAvoidingView>
+
           {/* <Pressable
                 style={[styles.button, styles.buttonOpen]}
                 onPress={() => this.setState({ modalVisible: !this.state.modalVisible})}
@@ -337,337 +358,342 @@ class UserInfo extends Component {
           }}
           keyboardShouldPersistTaps="handled"
         >
-          <KeyboardAvoidingView enabled>
-            <Text style={styles.TextSectionStyle}>Who Is The Patient?</Text>
-            <ScrollView
-              contentContainerStyle={{
-                paddingTop: 15,
-                paddingRight: 15,
-                paddingLeft: 15,
-              }}
-              horizontal
-            >
-              <TouchableOpacity
-                onPress={() => {
-                  this.setState({
-                    myselfBtn: true,
-                    motherBtn: false,
-                    fatherBtn: false,
-                    husbandBtn: false,
-                    wifeBtn: false,
-                    daughterBtn: false,
-                    sonBtn: false,
-                    otherBtn: false,
-                    patient: "myself",
-                  });
+          <KeyboardAvoidingView
+            behavior={Platform.OS === "ios" ? "position" : null}
+            keyboardVerticalOffset={Platform.OS === "ios" ? 50 : 70}
+          >
+            <ScrollView>
+              <Text style={styles.TextSectionStyle}>Who Is The Patient?</Text>
+              <ScrollView
+                contentContainerStyle={{
+                  paddingTop: 15,
+                  paddingRight: 15,
+                  paddingLeft: 15,
                 }}
-                style={
-                  this.state.myselfBtn == true
-                    ? styles.buttonRadioPress
-                    : styles.buttonRadio
-                }
+                horizontal
               >
-                <Text style={styles.RadioButtonTextStyle}>Myself</Text>
-              </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => {
+                    this.setState({
+                      myselfBtn: true,
+                      motherBtn: false,
+                      fatherBtn: false,
+                      husbandBtn: false,
+                      wifeBtn: false,
+                      daughterBtn: false,
+                      sonBtn: false,
+                      otherBtn: false,
+                      patient: "myself",
+                    });
+                  }}
+                  style={
+                    this.state.myselfBtn == true
+                      ? styles.buttonRadioPress
+                      : styles.buttonRadio
+                  }
+                >
+                  <Text style={styles.RadioButtonTextStyle}>Myself</Text>
+                </TouchableOpacity>
 
-              <TouchableOpacity
-                onPress={() => {
-                  this.setState({
-                    myselfBtn: false,
-                    motherBtn: false,
-                    fatherBtn: true,
-                    husbandBtn: false,
-                    wifeBtn: false,
-                    daughterBtn: false,
-                    sonBtn: false,
-                    otherBtn: false,
-                    patient: "father",
-                  });
-                }}
-                style={
-                  this.state.fatherBtn == true
-                    ? styles.buttonRadioPress
-                    : styles.buttonRadio
-                }
-              >
-                <Text style={styles.RadioButtonTextStyle}>Father</Text>
-              </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => {
+                    this.setState({
+                      myselfBtn: false,
+                      motherBtn: false,
+                      fatherBtn: true,
+                      husbandBtn: false,
+                      wifeBtn: false,
+                      daughterBtn: false,
+                      sonBtn: false,
+                      otherBtn: false,
+                      patient: "father",
+                    });
+                  }}
+                  style={
+                    this.state.fatherBtn == true
+                      ? styles.buttonRadioPress
+                      : styles.buttonRadio
+                  }
+                >
+                  <Text style={styles.RadioButtonTextStyle}>Father</Text>
+                </TouchableOpacity>
 
-              <TouchableOpacity
-                onPress={() => {
-                  this.setState({
-                    myselfBtn: false,
-                    motherBtn: true,
-                    fatherBtn: false,
-                    husbandBtn: false,
-                    wifeBtn: false,
-                    daughterBtn: false,
-                    sonBtn: false,
-                    otherBtn: false,
-                    patient: "mother",
-                  });
-                }}
-                style={
-                  this.state.motherBtn == true
-                    ? styles.buttonRadioPress
-                    : styles.buttonRadio
-                }
-              >
-                <Text style={styles.RadioButtonTextStyle}>Mother</Text>
-              </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => {
+                    this.setState({
+                      myselfBtn: false,
+                      motherBtn: true,
+                      fatherBtn: false,
+                      husbandBtn: false,
+                      wifeBtn: false,
+                      daughterBtn: false,
+                      sonBtn: false,
+                      otherBtn: false,
+                      patient: "mother",
+                    });
+                  }}
+                  style={
+                    this.state.motherBtn == true
+                      ? styles.buttonRadioPress
+                      : styles.buttonRadio
+                  }
+                >
+                  <Text style={styles.RadioButtonTextStyle}>Mother</Text>
+                </TouchableOpacity>
 
-              <TouchableOpacity
-                onPress={() => {
-                  this.setState({
-                    myselfBtn: false,
-                    motherBtn: false,
-                    fatherBtn: false,
-                    husbandBtn: true,
-                    wifeBtn: false,
-                    daughterBtn: false,
-                    sonBtn: false,
-                    otherBtn: false,
-                    patient: "husband",
-                  });
-                }}
-                style={
-                  this.state.husbandBtn == true
-                    ? styles.buttonRadioPress
-                    : styles.buttonRadio
-                }
-              >
-                <Text style={styles.RadioButtonTextStyle}>Husband</Text>
-              </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => {
+                    this.setState({
+                      myselfBtn: false,
+                      motherBtn: false,
+                      fatherBtn: false,
+                      husbandBtn: true,
+                      wifeBtn: false,
+                      daughterBtn: false,
+                      sonBtn: false,
+                      otherBtn: false,
+                      patient: "husband",
+                    });
+                  }}
+                  style={
+                    this.state.husbandBtn == true
+                      ? styles.buttonRadioPress
+                      : styles.buttonRadio
+                  }
+                >
+                  <Text style={styles.RadioButtonTextStyle}>Husband</Text>
+                </TouchableOpacity>
 
-              <TouchableOpacity
-                onPress={() => {
-                  this.setState({
-                    myselfBtn: false,
-                    motherBtn: false,
-                    fatherBtn: false,
-                    husbandBtn: false,
-                    wifeBtn: true,
-                    daughterBtn: false,
-                    sonBtn: false,
-                    otherBtn: false,
-                    patient: "wife",
-                  });
-                }}
-                style={
-                  this.state.wifeBtn == true
-                    ? styles.buttonRadioPress
-                    : styles.buttonRadio
-                }
-              >
-                <Text style={styles.RadioButtonTextStyle}>Wife</Text>
-              </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => {
+                    this.setState({
+                      myselfBtn: false,
+                      motherBtn: false,
+                      fatherBtn: false,
+                      husbandBtn: false,
+                      wifeBtn: true,
+                      daughterBtn: false,
+                      sonBtn: false,
+                      otherBtn: false,
+                      patient: "wife",
+                    });
+                  }}
+                  style={
+                    this.state.wifeBtn == true
+                      ? styles.buttonRadioPress
+                      : styles.buttonRadio
+                  }
+                >
+                  <Text style={styles.RadioButtonTextStyle}>Wife</Text>
+                </TouchableOpacity>
 
-              <TouchableOpacity
-                onPress={() => {
-                  this.setState({
-                    myselfBtn: false,
-                    motherBtn: false,
-                    fatherBtn: false,
-                    husbandBtn: false,
-                    wifeBtn: false,
-                    daughterBtn: false,
-                    sonBtn: true,
-                    otherBtn: false,
-                    patient: "son",
-                  });
-                }}
-                style={
-                  this.state.sonBtn == true
-                    ? styles.buttonRadioPress
-                    : styles.buttonRadio
-                }
-              >
-                <Text style={styles.RadioButtonTextStyle}>Son</Text>
-              </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => {
+                    this.setState({
+                      myselfBtn: false,
+                      motherBtn: false,
+                      fatherBtn: false,
+                      husbandBtn: false,
+                      wifeBtn: false,
+                      daughterBtn: false,
+                      sonBtn: true,
+                      otherBtn: false,
+                      patient: "son",
+                    });
+                  }}
+                  style={
+                    this.state.sonBtn == true
+                      ? styles.buttonRadioPress
+                      : styles.buttonRadio
+                  }
+                >
+                  <Text style={styles.RadioButtonTextStyle}>Son</Text>
+                </TouchableOpacity>
 
-              <TouchableOpacity
-                onPress={() => {
-                  this.setState({
-                    myselfBtn: false,
-                    motherBtn: false,
-                    fatherBtn: false,
-                    husbandBtn: false,
-                    wifeBtn: false,
-                    daughterBtn: true,
-                    sonBtn: false,
-                    otherBtn: false,
-                    patient: "daughter",
-                  });
-                }}
-                style={
-                  this.state.daughterBtn == true
-                    ? styles.buttonRadioPress
-                    : styles.buttonRadio
-                }
-              >
-                <Text style={styles.RadioButtonTextStyle}>Daughter</Text>
-              </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => {
+                    this.setState({
+                      myselfBtn: false,
+                      motherBtn: false,
+                      fatherBtn: false,
+                      husbandBtn: false,
+                      wifeBtn: false,
+                      daughterBtn: true,
+                      sonBtn: false,
+                      otherBtn: false,
+                      patient: "daughter",
+                    });
+                  }}
+                  style={
+                    this.state.daughterBtn == true
+                      ? styles.buttonRadioPress
+                      : styles.buttonRadio
+                  }
+                >
+                  <Text style={styles.RadioButtonTextStyle}>Daughter</Text>
+                </TouchableOpacity>
 
+                <TouchableOpacity
+                  onPress={() => {
+                    this.setState({
+                      myselfBtn: false,
+                      motherBtn: false,
+                      fatherBtn: false,
+                      husbandBtn: false,
+                      wifeBtn: false,
+                      daughterBtn: false,
+                      sonBtn: false,
+                      otherBtn: true,
+                      patient: "Others",
+                    });
+                  }}
+                  style={
+                    this.state.otherBtn == true
+                      ? styles.buttonRadioPress
+                      : styles.buttonRadio
+                  }
+                >
+                  <Text style={styles.RadioButtonTextStyle}>Other</Text>
+                </TouchableOpacity>
+              </ScrollView>
+
+              <View style={{ paddingTop: 25 }}>
+                <Text style={styles.TextSectionStyle}>Patient Name</Text>
+                <Row>
+                  <Col style={{ padding: 15 }}>
+                    <TextInput
+                      style={styles.inputStyle}
+                      onChangeText={(patientName) =>
+                        (this.state.patientFName = patientName)
+                      }
+                      underlineColorAndroid="#f000"
+                      placeholder="First Name"
+                      placeholderTextColor="#8b9cb5"
+                      // ref={emailInputRef}
+                      returnKeyType="next"
+                      // onSubmitEditing={() =>
+                      //   passwordInputRef.current &&
+                      //   passwordInputRef.current.focus()
+                      // }
+                      blurOnSubmit={false}
+                    />
+                  </Col>
+                  <Col style={{ padding: 15 }}>
+                    <TextInput
+                      style={styles.inputStyle}
+                      onChangeText={(patientName) =>
+                        (this.state.patientSName = patientName)
+                      }
+                      underlineColorAndroid="#f000"
+                      placeholder="Last Name"
+                      placeholderTextColor="#8b9cb5"
+                      // ref={emailInputRef}
+                      returnKeyType="next"
+                      // onSubmitEditing={() =>
+                      //   passwordInputRef.current &&
+                      //   passwordInputRef.current.focus()
+                      // }
+                      blurOnSubmit={false}
+                    />
+                  </Col>
+                </Row>
+              </View>
+
+              <View style={{ flexDirection: "column", marginTop: 10 }}>
+                <Text style={styles.TextSectionStyle}>Age</Text>
+                <View style={{ padding: 15 }}>
+                  <TextInput
+                    style={styles.inputAgeStyle}
+                    onChangeText={(val) => (this.state.age = val)}
+                    underlineColorAndroid="#f000"
+                    placeholder="Age"
+                    keyboardType="numeric"
+                    placeholderTextColor="#8b9cb5"
+                    // ref={emailInputRef}
+                    returnKeyType="next"
+                    // onSubmitEditing={() =>
+                    //   passwordInputRef.current &&
+                    //   passwordInputRef.current.focus()
+                    // }
+                    blurOnSubmit={false}
+                  />
+                </View>
+              </View>
+
+              <View style={{ marginTop: 10, marginBottom: 5 }}>
+                <Text style={styles.TextSectionStyle}>Gender</Text>
+                <Row style={{ padding: 15 }}>
+                  <Col>
+                    <TouchableOpacity
+                      onPress={() => {
+                        this.setState({
+                          maleBtn: true,
+                          femaleBtn: false,
+                          otherGenderBtn: false,
+                          gender: "male",
+                        });
+                      }}
+                      style={
+                        this.state.maleBtn == true
+                          ? styles.buttonRadioPress
+                          : styles.buttonRadio
+                      }
+                    >
+                      <Text style={styles.RadioButtonTextStyle}>Male</Text>
+                    </TouchableOpacity>
+                  </Col>
+
+                  <Col>
+                    <TouchableOpacity
+                      onPress={() => {
+                        this.setState({
+                          femaleBtn: true,
+                          maleBtn: false,
+                          otherGenderBtn: false,
+                          gender: "female",
+                        });
+                      }}
+                      style={
+                        this.state.femaleBtn == true
+                          ? styles.buttonRadioPress
+                          : styles.buttonRadio
+                      }
+                    >
+                      <Text style={styles.RadioButtonTextStyle}>Female</Text>
+                    </TouchableOpacity>
+                  </Col>
+
+                  <Col>
+                    <TouchableOpacity
+                      onPress={() => {
+                        this.setState({
+                          femaleBtn: false,
+                          maleBtn: false,
+                          otherGenderBtn: true,
+                          gender: "others",
+                        });
+                      }}
+                      style={
+                        this.state.otherGenderBtn == true
+                          ? styles.buttonRadioPress
+                          : styles.buttonRadio
+                      }
+                    >
+                      <Text style={styles.RadioButtonTextStyle}>Others</Text>
+                    </TouchableOpacity>
+                  </Col>
+                </Row>
+              </View>
               <TouchableOpacity
+                style={styles.buttonStyle}
+                activeOpacity={0.5}
                 onPress={() => {
-                  this.setState({
-                    myselfBtn: false,
-                    motherBtn: false,
-                    fatherBtn: false,
-                    husbandBtn: false,
-                    wifeBtn: false,
-                    daughterBtn: false,
-                    sonBtn: false,
-                    otherBtn: true,
-                    patient: "Others",
-                  });
+                  this.handleSubmitButton();
                 }}
-                style={
-                  this.state.otherBtn == true
-                    ? styles.buttonRadioPress
-                    : styles.buttonRadio
-                }
               >
-                <Text style={styles.RadioButtonTextStyle}>Other</Text>
+                <Text style={styles.buttonTextStyle}>Book An Appointment</Text>
               </TouchableOpacity>
             </ScrollView>
-
-            <View style={{ paddingTop: 25 }}>
-              <Text style={styles.TextSectionStyle}>Patient Name</Text>
-              <Row>
-                <Col style={{ padding: 15 }}>
-                  <TextInput
-                    style={styles.inputStyle}
-                    onChangeText={(patientName) =>
-                      (this.state.patientFName = patientName)
-                    }
-                    underlineColorAndroid="#f000"
-                    placeholder="First Name"
-                    placeholderTextColor="#8b9cb5"
-                    // ref={emailInputRef}
-                    returnKeyType="next"
-                    // onSubmitEditing={() =>
-                    //   passwordInputRef.current &&
-                    //   passwordInputRef.current.focus()
-                    // }
-                    blurOnSubmit={false}
-                  />
-                </Col>
-                <Col style={{ padding: 15 }}>
-                  <TextInput
-                    style={styles.inputStyle}
-                    onChangeText={(patientName) =>
-                      (this.state.patientSName = patientName)
-                    }
-                    underlineColorAndroid="#f000"
-                    placeholder="Last Name"
-                    placeholderTextColor="#8b9cb5"
-                    // ref={emailInputRef}
-                    returnKeyType="next"
-                    // onSubmitEditing={() =>
-                    //   passwordInputRef.current &&
-                    //   passwordInputRef.current.focus()
-                    // }
-                    blurOnSubmit={false}
-                  />
-                </Col>
-              </Row>
-            </View>
-
-            <View style={{ flexDirection: "column", marginTop: 10 }}>
-              <Text style={styles.TextSectionStyle}>Age</Text>
-              <View style={{ padding: 15 }}>
-                <TextInput
-                  style={styles.inputAgeStyle}
-                  onChangeText={(val) => (this.state.age = val)}
-                  underlineColorAndroid="#f000"
-                  placeholder="Age"
-                  keyboardType="numeric"
-                  placeholderTextColor="#8b9cb5"
-                  // ref={emailInputRef}
-                  returnKeyType="next"
-                  // onSubmitEditing={() =>
-                  //   passwordInputRef.current &&
-                  //   passwordInputRef.current.focus()
-                  // }
-                  blurOnSubmit={false}
-                />
-              </View>
-            </View>
-
-            <View style={{ marginTop: 10, marginBottom: 5 }}>
-              <Text style={styles.TextSectionStyle}>Gender</Text>
-              <Row style={{ padding: 15 }}>
-                <Col>
-                  <TouchableOpacity
-                    onPress={() => {
-                      this.setState({
-                        maleBtn: true,
-                        femaleBtn: false,
-                        otherGenderBtn: false,
-                        gender: "male",
-                      });
-                    }}
-                    style={
-                      this.state.maleBtn == true
-                        ? styles.buttonRadioPress
-                        : styles.buttonRadio
-                    }
-                  >
-                    <Text style={styles.RadioButtonTextStyle}>Male</Text>
-                  </TouchableOpacity>
-                </Col>
-
-                <Col>
-                  <TouchableOpacity
-                    onPress={() => {
-                      this.setState({
-                        femaleBtn: true,
-                        maleBtn: false,
-                        otherGenderBtn: false,
-                        gender: "female",
-                      });
-                    }}
-                    style={
-                      this.state.femaleBtn == true
-                        ? styles.buttonRadioPress
-                        : styles.buttonRadio
-                    }
-                  >
-                    <Text style={styles.RadioButtonTextStyle}>Female</Text>
-                  </TouchableOpacity>
-                </Col>
-
-                <Col>
-                  <TouchableOpacity
-                    onPress={() => {
-                      this.setState({
-                        femaleBtn: false,
-                        maleBtn: false,
-                        otherGenderBtn: true,
-                        gender: "others",
-                      });
-                    }}
-                    style={
-                      this.state.otherGenderBtn == true
-                        ? styles.buttonRadioPress
-                        : styles.buttonRadio
-                    }
-                  >
-                    <Text style={styles.RadioButtonTextStyle}>Others</Text>
-                  </TouchableOpacity>
-                </Col>
-              </Row>
-            </View>
-            <TouchableOpacity
-              style={styles.buttonStyle}
-              activeOpacity={0.5}
-              onPress={() => {
-                this.handleSubmitButton();
-              }}
-            >
-              <Text style={styles.buttonTextStyle}>Book An Appointment</Text>
-            </TouchableOpacity>
           </KeyboardAvoidingView>
         </ScrollView>
       </View>

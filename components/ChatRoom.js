@@ -375,14 +375,14 @@ export function ChatRoom({ navigation, route }) {
                 </Text>
               </View>
               <TouchableRipple
-                rippleColor="#486939"
-                style={styles.buttonStylePlan}
+                //rippleColor="#486939"
+                //style={styles.buttonStylePlan}
                 activeOpacity={0.5}
                 onPress={() => {
                   navigation.navigate("Therapy Plan");
                 }}
               >
-                <Text style={styles.buttonTextStylePlan}>Choose Your Plan</Text>
+                <Text>Choose Your Plan</Text>
               </TouchableRipple>
               <Text style={styles.namePlan}>{str}</Text>
             </View>
@@ -763,7 +763,7 @@ const styles = StyleSheet.create({
   buttonTextStylePlan: {
     color: "#FFFFFF",
     fontSize: 16,
-    fontFamily: "Nunito",
+    //fontFamily: "Nunito",
   },
   sendText: {
     //borderType: "solid",

@@ -10,14 +10,15 @@ import Carousel from "./Carousel";
 import ConsultationList from "./ConsultationList";
 
 const HomeScreen = ({ navigation }) => {
-  const [user, seUser] = useState(null);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     AsyncStorage.getItem("number").then((result) => {
       setUser(result);
+      console.log("this is result", result);
     });
-  }, []);
-
+  }, [user]);
+  console.log(user);
   const logout = () => {
     firebase
       .auth()

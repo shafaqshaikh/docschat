@@ -29,12 +29,15 @@ class ConsultationList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: "",
+      data: [],
     };
   }
 
   componentDidMount() {
     AsyncStorage.getItem("number").then((result) => {
+      // console.log("====================================");
+      // console.log(result);
+      // console.log("====================================");
       if (result != null) {
         var citiesRef = db.collection("NUMBERS");
         var query = citiesRef
@@ -44,9 +47,15 @@ class ConsultationList extends Component {
             const messages = querySnapshot.docs.map((doc) => {
               const data = doc.data();
               data.id = doc.id;
+              // console.log("====================================");
+              // console.log(doc.id);
+              // console.log("====================================");
               return data;
             });
             this.setState({ data: messages });
+            // console.log("====================================");
+            // console.log(messages.length);
+            // console.log("====================================");
           })
           .catch((error) => {
             console.log("Error getting documents: ", error);
@@ -54,7 +63,36 @@ class ConsultationList extends Component {
       }
     });
   }
-
+  componentDidUpdate() {
+    AsyncStorage.getItem("number").then((result) => {
+      // console.log("====================================");
+      // console.log(result);
+      // console.log("====================================");
+      if (result != null) {
+        var citiesRef = db.collection("NUMBERS");
+        var query = citiesRef
+          .where("mobile", "==", result)
+          .get()
+          .then((querySnapshot) => {
+            const messages = querySnapshot.docs.map((doc) => {
+              const data = doc.data();
+              data.id = doc.id;
+              // console.log("====================================");
+              // console.log(doc.id);
+              // console.log("====================================");
+              return data;
+            });
+            this.setState({ data: messages });
+            // console.log("====================================");
+            // console.log(messages.length);
+            // console.log("====================================");
+          })
+          .catch((error) => {
+            console.log("Error getting documents: ", error);
+          });
+      }
+    });
+  }
   render() {
     const Item = ({ data }) => (
       <TouchableRipple
@@ -115,20 +153,32 @@ class ConsultationList extends Component {
           ItemSeparatorComponent={({ highlighted }) => (
             <View style={styles.break} />
           )}
-          ListFooterComponent={({ highlighted }) => (
-            <View>
-              {this.state.data && <View style={{ marginBottom: 33 }} />}
-            </View>
-          )}
-          ListHeaderComponent={({ highlighted }) => (
-            <View style={styles.header}>
-              {this.state.data && (
-                <Text style={styles.text}>Consultations</Text>
-              )}
-            </View>
-          )}
+          // ListFooterComponent={({ highlighted }) => (
+          //   <View>
+          //     {this.state.data && <View style={{ marginBottom: 33 }} />}
+          //   </View>
+          // )}
+          // ListHeaderComponent={({ highlighted }) => (
+          //   <View style={styles.header}>
+          //     {this.state.data && (
+          //       <Text style={styles.text}>Consultations</Text>
+          //     )}
+          //   </View>
+          // )}
         />
       </View>
+      // <View>
+      //   <FlatList
+      //     data={this.data}
+      //     keyExtractor={(item) => item.id}
+      //     ItemSeparatorComponent={({ highlighted }) => (
+      //       <View style={styles.break} />
+      //     )}
+      //     renderItem={({ item }) => {
+      //       <Text style={{ fontSize: 50 }}>hiiii</Text>;
+      //     }}
+      //   />
+      // </View>
     );
   }
 }
@@ -138,7 +188,7 @@ const styles = StyleSheet.create({
   break: {
     marginBottom: 5,
     marginTop: 5,
-    // borderStyle: 'solid',
+    borderStyle: "solid",
     // borderColor: '#0000003b',
     // marginLeft: 86,
     // marginRight: 19,

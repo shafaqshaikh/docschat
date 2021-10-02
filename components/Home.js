@@ -231,88 +231,88 @@ export default function Home() {
         <Stack.Screen
           name="Therapy Plan"
           component={TherapyPlan}
-          options={({ navigation, route }) => ({
-            headerRight: () => (
-              <TouchableOpacity
-                onPress={() => {
-                  navigation.navigate("Dr. Basith");
-                }}
-              >
-                <Image
-                  style={{ height: 23, width: 24, marginRight: 25 }}
-                  source={require("../assets/close.png")}
-                ></Image>
-              </TouchableOpacity>
-            ),
-            headerTitle: () => "",
-            headerLeft: () => "",
-          })}
+          // options={({ navigation, route }) => ({
+          //   headerRight: () => (
+          //     <TouchableOpacity
+          //       onPress={() => {
+          //         navigation.navigate("Dr. Basith");
+          //       }}
+          //     >
+          //       <Image
+          //         style={{ height: 23, width: 24, marginRight: 25 }}
+          //         source={require("../assets/close.png")}
+          //       ></Image>
+          //     </TouchableOpacity>
+          //   ),
+          //   headerTitle: () => "",
+          //   headerLeft: () => "",
+          // })}
         />
 
         <Stack.Screen
           name="Therapy Plan Details"
           component={TherapyPlanDetails}
-          options={({ navigation, route }) => ({
-            // headerTitle: props => <LogoTitle {...props} />,
-            headerRight: () => (
-              <TouchableOpacity
-                onPress={() => {
-                  navigation.navigate("Dr. Basith");
-                }}
-              >
-                <Image
-                  style={{ height: 23, width: 24, marginRight: 25 }}
-                  source={require("../assets/close.png")}
-                ></Image>
-              </TouchableOpacity>
-            ),
-            headerTitle: () => "",
-            headerLeft: () => (
-              <TouchableOpacity
-                onPress={() => {
-                  navigation.navigate("Therapy Plan");
-                }}
-              >
-                <Image
-                  style={{ height: 16, width: 21, marginLeft: 18 }}
-                  source={require("../assets/back.png")}
-                ></Image>
-              </TouchableOpacity>
-            ),
-          })}
+          // options={({ navigation, route }) => ({
+          //   // headerTitle: props => <LogoTitle {...props} />,
+          //   headerRight: () => (
+          //     <TouchableOpacity
+          //       onPress={() => {
+          //         navigation.navigate("Dr. Basith");
+          //       }}
+          //     >
+          //       <Image
+          //         style={{ height: 23, width: 24, marginRight: 25 }}
+          //         source={require("../assets/close.png")}
+          //       ></Image>
+          //     </TouchableOpacity>
+          //   ),
+          //   headerTitle: () => "",
+          //   headerLeft: () => (
+          //     <TouchableOpacity
+          //       onPress={() => {
+          //         navigation.navigate("Therapy Plan");
+          //       }}
+          //     >
+          //       <Image
+          //         style={{ height: 16, width: 21, marginLeft: 18 }}
+          //         source={require("../assets/back.png")}
+          //       ></Image>
+          //     </TouchableOpacity>
+          //   ),
+          // })}
         />
 
         <Stack.Screen
           name="Therapy Plan Checkout"
           component={TherapyPlanCheckout}
-          options={({ navigation, route }) => ({
-            // headerTitle: props => <LogoTitle {...props} />,
-            headerLeft: () => (
-              <TouchableOpacity
-                onPress={() => {
-                  navigation.navigate("Therapy Plan Details");
-                }}
-              >
-                <Image
-                  style={{ height: 16, width: 21, marginLeft: 18 }}
-                  source={require("../assets/back.png")}
-                ></Image>
-              </TouchableOpacity>
-            ),
-            headerTitle: () => "",
-            headerRight: () => (
-              <TouchableOpacity
-                onPress={() => {
-                  navigation.navigate("Dr. Basith");
-                }}
-              >
-                <Image
-                  style={{ height: 23, width: 24, marginRight: 25 }}
-                  source={require("../assets/close.png")}
-                ></Image>
-              </TouchableOpacity>
-            ),
-          })}
+          // options={({ navigation, route }) => ({
+          //   // headerTitle: props => <LogoTitle {...props} />,
+          //   headerLeft: () => (
+          //     <TouchableOpacity
+          //       onPress={() => {
+          //         navigation.navigate("Therapy Plan Details");
+          //       }}
+          //     >
+          //       <Image
+          //         style={{ height: 16, width: 21, marginLeft: 18 }}
+          //         source={require("../assets/back.png")}
+          //       ></Image>
+          //     </TouchableOpacity>
+          //   ),
+          //   headerTitle: () => "",
+          //   headerRight: () => (
+          //     <TouchableOpacity
+          //       onPress={() => {
+          //         navigation.navigate("Dr. Basith");
+          //       }}
+          //     >
+          //       <Image
+          //         style={{ height: 23, width: 24, marginRight: 25 }}
+          //         source={require("../assets/close.png")}
+          //       ></Image>
+          //     </TouchableOpacity>
+          //   ),
+          // })}
         />
       </Stack.Navigator>
     );
