@@ -17,6 +17,7 @@ import AsyncStorage from "@react-native-community/async-storage";
 // PROVIDE VALID FIREBASE CONFIG HERE
 // https://firebase.google.com/docs/web/setup
 const FIREBASE_CONFIG = {
+  databaseURL: "https://medikaids-649e1.firebaseio.com",
   apiKey: "AIzaSyBU4StvIWMDTwuTR_PqQ73oyGQYgh5cP-k",
   authDomain: "medikaids-649e1.firebaseapp.com",
   projectId: "medikaids-649e1",
@@ -29,6 +30,7 @@ const FIREBASE_CONFIG = {
 try {
   if (FIREBASE_CONFIG.apiKey) {
     firebase.initializeApp(FIREBASE_CONFIG);
+    firebase.firestore().settings({ experimentalForceLongPolling: true }); //add this..
   }
 } catch (err) {
   // ignore app already initialized error on snack

@@ -19,78 +19,50 @@ class Carousel extends Component {
     const { container } = styles;
 
     return (
-      <ScrollView style={{ marginBottom: 33 }} horizontal>
+      <ScrollView horizontal>
         <View
           style={{
             flex: 1,
             flexDirection: "column",
-            width: CARD_WIDTH * 0.7,
+            width: CARD_WIDTH * 0.8,
             backgroundColor: "#c1a3d4",
             borderRadius: 10,
             marginTop: 10,
-            marginLeft: 12,
-            marginRight: 12,
-          }}
-        >
-          <View
-            style={{
-              flex: 1,
-              flexDirection: "column",
-              padding: 15,
-              paddingBottom: 0,
-            }}
-          >
-            <View style={{ flex: 1, flexDirection: "row" }}>
-              <View style={{ paddingBottom: 10 }}>
-                <Text style={styles.hello}>Online Therapy</Text>
-              </View>
+            marginHorizontal: 12,
+          }}>
+          <View style={styles.colorfull_Cards}>
+            <View>
+              <Text style={styles.hello}>Online Therapy</Text>
             </View>
 
-            <View style={{ flex: 1, flexDirection: "row" }}>
-              <View>
-                <Text style={styles.best}>
-                  Connect With Our Experts And Begin Your Journey Via Video Call
-                </Text>
-              </View>
+            <View>
+              <Text style={styles.best}>
+                Connect With Our Experts And Begin Your Journey Via Video Call
+              </Text>
             </View>
           </View>
 
-          <View style={{ flex: 1, flexDirection: "row" }}>
-            <View
-              style={{
-                flex: 1,
-                flexDirection: "column",
-                paddingLeft: 15,
-                justifyContent: "center",
-              }}
-            >
-              <View>
-                <Text style={styles.just}>RS 599/Session</Text>
-              </View>
+          <View
+            style={{
+              flex: 1,
+              flexDirection: "row",
+              justifyContent: "space-between",
+              paddingLeft: 15,
+              alignItems: "center",
+            }}>
+            <View>
+              <Text style={styles.just}>RS 599/Session</Text>
             </View>
-
-            <View
-              style={{
-                flex: 1,
-                flexDirection: "column",
-                alignItems: "center",
-                alignItems: "flex-end",
-                justifyContent: "flex-end",
-              }}
-            >
+            <View>
               <Image
                 resizeMode="cover"
                 style={{
-                  height: "auto",
-                  width: "auto",
-                  paddingTop: 30,
-                  paddingLeft: 36,
-                  paddingBottom: 30,
-                  paddingRight: 36,
-                  borderRadius: 10,
+                  height: 70,
+                  width: 80,
+                  flex: 1,
+                  alignSelf: "flex-end",
                 }}
-                source={require("../assets/online.png")}
-              ></Image>
+                source={require("../assets/online.png")}></Image>
             </View>
           </View>
         </View>
@@ -99,72 +71,47 @@ class Carousel extends Component {
           style={{
             flex: 1,
             flexDirection: "column",
-            width: CARD_WIDTH * 0.7,
+            width: CARD_WIDTH * 0.8,
             backgroundColor: "#f1ada2",
             borderRadius: 10,
             marginTop: 10,
             marginRight: 12,
-          }}
-        >
-          <View
-            style={{
-              flex: 1,
-              flexDirection: "column",
-              padding: 15,
-              paddingBottom: 0,
-            }}
-          >
-            <View style={{ flex: 1, flexDirection: "row" }}>
-              <View style={{ paddingBottom: 10 }}>
-                <Text style={styles.hello}>Couples Therapy</Text>
-              </View>
+          }}>
+          <View style={styles.colorfull_Cards}>
+            <View>
+              <Text style={styles.hello}>Couples Therapy</Text>
             </View>
 
-            <View style={{ flex: 1, flexDirection: "row" }}>
-              <View>
-                <Text style={styles.best}>
-                  Resolve Conflicts In Relationships And Marriages
-                </Text>
-              </View>
+            <View>
+              <Text style={styles.best}>
+                Resolve Conflicts In Relationships And Marriages
+              </Text>
             </View>
           </View>
 
-          <View style={{ flex: 1, flexDirection: "row" }}>
+          <View>
             <View
               style={{
                 flex: 1,
-                flexDirection: "column",
+                flexDirection: "row",
+                justifyContent: "space-between",
                 paddingLeft: 15,
-                justifyContent: "center",
-              }}
-            >
+                alignItems: "center",
+              }}>
               <View>
                 <Text style={styles.just}>RS 799/Session</Text>
               </View>
-            </View>
-
-            <View
-              style={{
-                flex: 1,
-                flexDirection: "column",
-                alignItems: "center",
-                alignItems: "flex-end",
-                justifyContent: "flex-end",
-              }}
-            >
-              <Image
-                resizeMode="cover"
-                style={{
-                  height: "auto",
-                  width: "auto",
-                  paddingTop: 30,
-                  paddingLeft: 40,
-                  paddingBottom: 30,
-                  paddingRight: 40,
-                  borderRadius: 10,
-                }}
-                source={require("../assets/couples.png")}
-              ></Image>
+              <View>
+                <Image
+                  resizeMode="cover"
+                  style={{
+                    height: 70,
+                    width: 80,
+                    flex: 1,
+                    alignSelf: "flex-end",
+                  }}
+                  source={require("../assets/couples.png")}></Image>
+              </View>
             </View>
           </View>
         </View>
@@ -173,70 +120,48 @@ class Carousel extends Component {
           style={{
             flex: 1,
             flexDirection: "column",
-            width: CARD_WIDTH * 0.7,
+            width: CARD_WIDTH * 0.8,
             backgroundColor: "#b6499c",
             borderRadius: 10,
             marginTop: 10,
             marginRight: 12,
-          }}
-        >
-          <View
-            style={{
-              flex: 1,
-              flexDirection: "column",
-              padding: 15,
-              paddingBottom: 0,
-            }}
-          >
-            <View style={{ flex: 1, flexDirection: "row" }}>
-              <View style={{ paddingBottom: 10 }}>
-                <Text style={styles.hello}>Online Physio</Text>
-              </View>
+          }}>
+          <View style={styles.colorfull_Cards}>
+            <View>
+              <Text style={styles.hello}>Online Physio</Text>
             </View>
 
-            <View style={{ flex: 1, flexDirection: "row" }}>
-              <View>
-                <Text style={styles.best}>
-                  Connect With certified, Specialized And Experienced
-                  Physiotherapists
-                </Text>
-              </View>
+            <View>
+              <Text style={styles.best}>
+                Connect With certified, Specialized And Experienced
+                Physiotherapists
+              </Text>
             </View>
           </View>
 
-          <View style={{ flex: 1, flexDirection: "row" }}>
+          <View>
             <View
               style={{
                 flex: 1,
-                flexDirection: "column",
+                flexDirection: "row",
+                justifyContent: "space-between",
                 paddingLeft: 15,
-                justifyContent: "center",
-              }}
-            >
+                alignItems: "center",
+              }}>
               <View>
                 <Text style={styles.just}>RS 399/Session</Text>
               </View>
-            </View>
-
-            <View
-              style={{
-                flex: 1,
-                flexDirection: "column",
-                alignItems: "center",
-                alignItems: "flex-end",
-                justifyContent: "flex-end",
-              }}
-            >
-              <Image
-                resizeMode="cover"
-                style={{
-                  height: "auto",
-                  width: "auto",
-                  padding: 28,
-                  borderRadius: 10,
-                }}
-                source={require("../assets/therapist.png")}
-              ></Image>
+              <View>
+                <Image
+                  resizeMode="cover"
+                  style={{
+                    height: 70,
+                    width: 80,
+                    flex: 1,
+                    alignSelf: "flex-end",
+                  }}
+                  source={require("../assets/therapist.png")}></Image>
+              </View>
             </View>
           </View>
         </View>
@@ -246,19 +171,29 @@ class Carousel extends Component {
 }
 
 const styles = StyleSheet.create({
+  colorfull_Cards: {
+    flex: 1,
+    flexDirection: "column",
+    paddingHorizontal: 15,
+    paddingTop: 15,
+    paddingBottom: 0,
+  },
+
   hello: {
     //fontFamily: 'Nunito-ExtraBold',
     fontSize: 16,
     color: "ghostwhite",
     letterSpacing: 0.3,
     color: "white",
+    fontWeight: "bold",
+    paddingBottom: 10,
   },
   best: {
     //fontFamily: 'Nunito-Regular',
     fontSize: 12,
     color: "ghostwhite",
     letterSpacing: 0.3,
-    color: "white",
+    color: "#fff",
   },
   just: {
     backgroundColor: "white",
@@ -266,11 +201,12 @@ const styles = StyleSheet.create({
     //height: 'fit-content',
     padding: 5,
     //fontFamily: 'Nunito-SemiBold',
-    fontSize: 11,
+    fontSize: 12,
     color: "#5861a4",
     letterSpacing: 0.3,
     paddingLeft: 10,
     paddingRight: 10,
+    textAlign: "center",
     //width: 'fit-content'
   },
 });

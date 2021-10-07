@@ -29,23 +29,24 @@ class Services extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View style={{ padding: 16 }}>
         {this.state.home == true && (
-          <View>
+          <View style={styles.container}>
             <View style={styles.home}>
               <TouchableRipple
                 rippleColor="#486939"
                 onPress={() => {
                   this.setState({ home: false, doctor: true });
                 }}
-                style={{ flex: 1, flexDirection: "column" }}
-              >
-                <View style={{ alignItems: "center" }}>
+                style={{
+                  flexDirection: "column",
+                  flex: 1,
+                }}>
+                <View style={{ alignItems: "center", padding: 20 }}>
                   <Image
                     style={{ height: 50, width: 50 }}
-                    source={require("../assets/counseler.png")}
-                  ></Image>
-                  <Text style={s.fontFamily}>Talk Therapy</Text>
+                    source={require("../assets/counseler.png")}></Image>
+                  <Text style={styles.cardtext}>Talk Therapy</Text>
                 </View>
               </TouchableRipple>
 
@@ -54,14 +55,12 @@ class Services extends Component {
                 onPress={() => {
                   this.setState({ home: false, doctor: true });
                 }}
-                style={{ flex: 1, flexDirection: "column" }}
-              >
-                <View style={{ alignItems: "center" }}>
+                style={{ flex: 1, flexDirection: "column" }}>
+                <View style={{ alignItems: "center", padding: 20 }}>
                   <Image
                     style={{ height: 50, width: 50 }}
-                    source={require("../assets/therapist.png")}
-                  ></Image>
-                  <Text style={s.fontFamily}>Physio Therapy</Text>
+                    source={require("../assets/therapist.png")}></Image>
+                  <Text style={styles.cardtext}>Physio Therapy</Text>
                 </View>
               </TouchableRipple>
             </View>
@@ -72,14 +71,12 @@ class Services extends Component {
                 onPress={() => {
                   this.setState({ home: false, doctor: true });
                 }}
-                style={{ flex: 1, flexDirection: "column" }}
-              >
-                <View style={{ alignItems: "center" }}>
+                style={{ flex: 1, flexDirection: "column" }}>
+                <View style={{ alignItems: "center", padding: 20 }}>
                   <Image
                     style={{ height: 50, width: 50 }}
-                    source={require("../assets/diet.png")}
-                  ></Image>
-                  <Text style={s.fontFamily}>Nutritionist</Text>
+                    source={require("../assets/diet.png")}></Image>
+                  <Text style={styles.cardtext}>Nutritionist</Text>
                 </View>
               </TouchableRipple>
 
@@ -88,14 +85,12 @@ class Services extends Component {
                 onPress={() => {
                   this.setState({ home: false, doctor: true });
                 }}
-                style={{ flex: 1, flexDirection: "column" }}
-              >
-                <View style={{ alignItems: "center" }}>
+                style={{ flex: 1, flexDirection: "column" }}>
+                <View style={{ alignItems: "center", padding: 20 }}>
                   <Image
                     style={{ height: 50, width: 50 }}
-                    source={require("../assets/virus.png")}
-                  ></Image>
-                  <Text style={s.fontFamily}>Covid-19</Text>
+                    source={require("../assets/virus.png")}></Image>
+                  <Text style={styles.cardtext}>Covid-19</Text>
                 </View>
               </TouchableRipple>
             </View>
@@ -103,52 +98,48 @@ class Services extends Component {
         )}
 
         {this.state.doctor == true && (
-          <View
-            style={{
-              paddingTop: 20,
-              paddingBottom: 20,
-              paddingLeft: 3,
-              paddingRight: 3,
-            }}
-          >
-            <View style={{ flex: 1, flexDirection: "row" }}>
-              <View style={{ flex: 1, flexDirection: "column" }}>
-                <View style={{ alignItems: "center" }}>
-                  <TouchableOpacity
-                    onPress={() => {
-                      this.setState({ home: true, doctor: false });
-                    }}
-                  >
-                    <Image
-                      style={{ height: 12, width: 16, marginLeft: 10 }}
-                      source={require("../assets/back.png")}
-                    ></Image>
-                  </TouchableOpacity>
-                </View>
-              </View>
-
-              <View
-                style={{ paddingLeft: 20, flex: 9, flexDirection: "column" }}
-              >
-                <View style={{ justifyContent: "center" }}>
-                  <Text>Talk to a Doctor</Text>
-                </View>
-                <View style={{}}>
-                  <Text style={styles.doctor}>
-                    Consult with Top Doctors Online, 24x7
-                  </Text>
-                </View>
+          <View style={styles.container}>
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "flex-start",
+                paddingLeft: 10,
+                paddingTop: 15,
+              }}>
+              <View>
+                <TouchableOpacity
+                  onPress={() => {
+                    this.setState({ home: true, doctor: false });
+                  }}>
+                  <Image
+                    style={{ height: 18, width: 24 }}
+                    source={require("../assets/back.png")}></Image>
+                </TouchableOpacity>
               </View>
             </View>
-            <TouchableRipple
-              style={styles.buttonStyle}
-              rippleColor="#486939"
-              onPress={() => {
-                this.props.ganda.navigate("Consult A Doctor");
-              }}
-            >
-              <Text style={styles.buttonTextStyle}>Start Consultation</Text>
-            </TouchableRipple>
+
+            <View
+              style={{
+                flexDirection: "column",
+                alignItems: "center",
+              }}>
+              <Text style={styles.content_tect}>Talk to a Doctor</Text>
+
+              <Text style={styles.doctor}>
+                Consult with Top Doctors Online, 24x7
+              </Text>
+            </View>
+
+            <View style={{ padding: 25 }}>
+              <TouchableRipple
+                style={styles.buttonStyle}
+                rippleColor="#486939"
+                onPress={() => {
+                  this.props.ganda.navigate("Consult A Doctor");
+                }}>
+                <Text style={styles.buttonTextStyle}>Start Consultation</Text>
+              </TouchableRipple>
+            </View>
           </View>
         )}
       </View>
@@ -157,28 +148,39 @@ class Services extends Component {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    borderRadius: 25,
+    backgroundColor: "#fff",
+    padding: 10,
+    width: "100%",
+    shadowColor: "#000000",
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowRadius: 5,
+    shadowOpacity: 1.0,
+    elevation: 7,
+  },
+
   home: {
-    flex: 1,
+    // flex: 1,
     flexDirection: "row",
     justifyContent: "space-between",
-    padding: 20,
+    alignItems: "center",
   },
-  container: {
-    //boxShadow: "0 0 15px rgba(24,24,24,.161)",
-    margin: 23,
-    borderRadius: 30,
+
+  cardtext: { fontSize: 14, paddingTop: 10 },
+
+  content_tect: {
+    fontSize: 16,
     paddingBottom: 20,
-    paddingTop: 20,
-    marginTop: 33,
   },
+
   doctor: {
     color: "#050a4e",
     //fontFamily: "Nunito",
-    fontSize: 17,
-    lineHeight: 22,
-    paddingTop: 25,
-    paddingBottom: 10,
-    paddingRight: 30,
+    fontSize: 18,
   },
   button: {
     borderWidth: 1,
@@ -186,7 +188,6 @@ const styles = StyleSheet.create({
     borderColor: "#969696",
     borderRadius: 30,
     alignItems: "center",
-    marginTop: 23,
     padding: 10,
     color: "#4585f4",
   },
@@ -199,9 +200,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 10,
-    marginLeft: 45,
-    marginRight: 45,
-    marginTop: 15,
   },
   buttonTextStyle: {
     color: "#FFFFFF",

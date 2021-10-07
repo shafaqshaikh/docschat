@@ -25,12 +25,14 @@ function TherapyPlanDetails({ navigation, route }) {
                   borderRadius: 10,
                   margin: 10,
                   background: "rgb(245, 247, 250)",
-                  textAlign: "center",
-                }}
-              >
+                }}>
                 <Text
-                  style={{ color: "#a5a5a5", paddingTop: 3, paddingBottom: 3 }}
-                >
+                  style={{
+                    color: "#a5a5a5",
+                    paddingTop: 3,
+                    paddingBottom: 3,
+                    textAlign: "center",
+                  }}>
                   Plan
                 </Text>
               </View>
@@ -40,13 +42,15 @@ function TherapyPlanDetails({ navigation, route }) {
                 style={{
                   borderRadius: 10,
                   margin: 10,
-                  background: "rgb(150, 162, 184)",
-                  textAlign: "center",
-                }}
-              >
+                  backgroundColor: "#a5a5a5",
+                }}>
                 <Text
-                  style={{ color: "white", paddingTop: 3, paddingBottom: 3 }}
-                >
+                  style={{
+                    color: "#fff",
+                    paddingTop: 3,
+                    paddingBottom: 3,
+                    textAlign: "center",
+                  }}>
                   Details
                 </Text>
               </View>
@@ -57,12 +61,14 @@ function TherapyPlanDetails({ navigation, route }) {
                   borderRadius: 10,
                   margin: 10,
                   background: "rgb(245, 247, 250)",
-                  textAlign: "center",
-                }}
-              >
+                }}>
                 <Text
-                  style={{ color: "#a5a5a5", paddingTop: 3, paddingBottom: 3 }}
-                >
+                  style={{
+                    color: "#a5a5a5",
+                    paddingTop: 3,
+                    paddingBottom: 3,
+                    textAlign: "center",
+                  }}>
                   Checkout
                 </Text>
               </View>
@@ -79,8 +85,7 @@ function TherapyPlanDetails({ navigation, route }) {
                   <Row style={{ paddingBottom: 20 }}>
                     <Image
                       style={{ height: 20, width: 20 }}
-                      source={require("../assets/protection.png")}
-                    ></Image>
+                      source={require("../assets/protection.png")}></Image>
                     <Text style={{ marginLeft: 8, paddingTop: 2 }}>
                       Verified
                     </Text>
@@ -93,8 +98,7 @@ function TherapyPlanDetails({ navigation, route }) {
               <Col size={1} style={{ textAlign: "center" }}>
                 <Image
                   style={{ height: 90, width: 90, borderRadius: 60 }}
-                  source={require("../assets/therapist.jpg")}
-                ></Image>
+                  source={require("../assets/therapist.jpg")}></Image>
               </Col>
             </Row>
           </View>
@@ -108,8 +112,7 @@ function TherapyPlanDetails({ navigation, route }) {
               borderBottomWidth: 1,
               borderBottomColor: "rgb(227, 233, 237)",
               borderStyle: "solid",
-            }}
-          >
+            }}>
             <Row style={{ marginBottom: 10 }}>
               <Text style={{ fontSize: 15 }}>Summary</Text>
             </Row>
@@ -133,8 +136,7 @@ function TherapyPlanDetails({ navigation, route }) {
               marginLeft: 20,
               marginTop: 20,
               marginRight: 20,
-            }}
-          >
+            }}>
             <Col size={3}>
               <Text style={{ fontSize: 16 }}>Total</Text>
             </Col>
@@ -150,21 +152,19 @@ function TherapyPlanDetails({ navigation, route }) {
 
       <View
         style={{
-          position: "absolute",
+          // position: "absolute",
           bottom: 0,
           borderTopWidth: 1,
           borderStyle: "solid",
           borderTopColor: "#f2f2f2",
           backgroundColor: "white",
-        }}
-      >
+        }}>
         <TouchableRipple
           style={styles.buttonStyle}
           rippleColor="#486939"
           onPress={() => {
             navigation.navigate("Therapy Plan Checkout");
-          }}
-        >
+          }}>
           <Text style={styles.buttonTextStyle}>Checkout</Text>
         </TouchableRipple>
       </View>

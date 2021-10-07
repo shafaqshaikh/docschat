@@ -1,5 +1,7 @@
 import React from "react";
 import Home from "./components/Home";
+import { LogBox } from "react-native";
+
 // import LoadingScreen from './components/LoadingScreen'
 
 import { createAppContainer, createSwitchNavigator } from "react-navigation";
@@ -12,6 +14,8 @@ import { AppRegistry } from "react-native";
 // firebase.initializeApp(firebaseConfig);
 
 export default function App() {
+  LogBox.ignoreLogs(["Setting a timer for a long period of time"]);
+
   // let [fontsLoaded] = useFonts({
   //   'Nunito': require('./assets/fonts/Nunito-Bold.ttf'),
   //   'Nunito-Black': require('./assets/fonts/Nunito-Black.ttf'),

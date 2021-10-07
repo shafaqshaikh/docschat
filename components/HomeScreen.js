@@ -1,13 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { Header } from "react-native-elements";
 import { FontAwesome, Entypo } from "@expo/vector-icons";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
 import Card from "./Cards";
 import Services from "./Services";
 import firebase from "firebase";
 import AsyncStorage from "@react-native-community/async-storage";
 import Carousel from "./Carousel";
 import ConsultationList from "./ConsultationList";
+import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 
 const HomeScreen = ({ navigation }) => {
   const [user, setUser] = useState(null);
@@ -34,7 +41,20 @@ const HomeScreen = ({ navigation }) => {
   };
 
   return (
-    <View style={{ backgroundColor: "none", marginTop: 100 }}>
+    <ScrollView
+      style={{
+        backgroundColor: "#fff",
+        flex: 1,
+      }}>
+      <View style={styles.menubar}>
+        <TouchableOpacity>
+          <FontAwesome5
+            name={"bars"}
+            style={{ fontSize: 26 }}
+            onPress={() => navigation.openDrawer()}
+          />
+        </TouchableOpacity>
+      </View>
       {/* <Header
         placement="left"
         backgroundColor="none"
@@ -69,16 +89,46 @@ const HomeScreen = ({ navigation }) => {
       <Card></Card>
       <Services ganda={navigation}></Services>
       <Carousel></Carousel>
-      {user !== null && (
-        <ConsultationList ganda={navigation}></ConsultationList>
-      )}
-    </View>
+      <View style={{ marginTop: 20, paddingHorizontal: 14 }}>
+        <Text
+          style={{
+            fontSize: 16,
+            fontStyle: "normal",
+            fontWeight: "600",
+            color: "#363636",
+            paddingBottom: 10,
+          }}>
+          Consultations
+        </Text>
+        {user !== null && (
+          <ConsultationList ganda={navigation}></ConsultationList>
+        )}
+      </View>
+    </ScrollView>
   );
 };
 
 export default HomeScreen;
 
 const styles = StyleSheet.create({
+  menubar: {
+    width: "100%",
+    backgroundColor: "#fff",
+    shadowColor: "#000000",
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 1,
+      width: 1,
+    },
+    elevation: 2,
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    paddingHorizontal: 12,
+    paddingVertical: 12,
+  },
+
   login: {
     backgroundColor: "transparent",
     //display: 'block',

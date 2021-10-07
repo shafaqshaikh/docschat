@@ -245,6 +245,7 @@ class UserInfo extends Component {
               name: "BOT",
             },
           });
+          console.log("hiiiiiiii");
           this.setState({ spinner: !this.state.spinner });
           this.props.navigation.navigate("Dr. Basith", {
             docID: docRef.id,
@@ -275,8 +276,7 @@ class UserInfo extends Component {
           <KeyboardAvoidingView
             style={{ flex: 1 }}
             behavior={Platform.OS === "ios" ? "position" : null}
-            keyboardVerticalOffset={Platform.OS === "ios" ? 50 : 70}
-          >
+            keyboardVerticalOffset={Platform.OS === "ios" ? 50 : 70}>
             <ScrollView>
               <Modal
                 animationType="slide"
@@ -284,8 +284,7 @@ class UserInfo extends Component {
                 visible={this.state.modalVisible}
                 onRequestClose={() => {
                   this.setState({ modalVisible: !this.state.modalVisible });
-                }}
-              >
+                }}>
                 <View style={styles.centeredView}>
                   <View style={styles.modalView}>
                     <Pressable
@@ -294,12 +293,10 @@ class UserInfo extends Component {
                         this.setState({
                           modalVisible: !this.state.modalVisible,
                         })
-                      }
-                    >
+                      }>
                       <Image
                         style={{ height: 25, width: 25 }}
-                        source={require("../assets/close.png")}
-                      ></Image>
+                        source={require("../assets/close.png")}></Image>
                     </Pressable>
                     {/* <Text style={styles.modalText}>Hello World!</Text> */}
                     <View style={{ flexDirection: "column", marginTop: 10 }}>
@@ -326,8 +323,7 @@ class UserInfo extends Component {
                           activeOpacity={0.5}
                           onPress={() => {
                             this.handleOtpButton();
-                          }}
-                        >
+                          }}>
                           <Text style={styles.buttonTextStyle}>Submit</Text>
                         </TouchableOpacity>
                       </View>
@@ -356,12 +352,10 @@ class UserInfo extends Component {
             justifyContent: "center",
             marginTop: 50,
           }}
-          keyboardShouldPersistTaps="handled"
-        >
+          keyboardShouldPersistTaps="handled">
           <KeyboardAvoidingView
             behavior={Platform.OS === "ios" ? "position" : null}
-            keyboardVerticalOffset={Platform.OS === "ios" ? 50 : 70}
-          >
+            keyboardVerticalOffset={Platform.OS === "ios" ? 50 : 70}>
             <ScrollView>
               <Text style={styles.TextSectionStyle}>Who Is The Patient?</Text>
               <ScrollView
@@ -370,8 +364,7 @@ class UserInfo extends Component {
                   paddingRight: 15,
                   paddingLeft: 15,
                 }}
-                horizontal
-              >
+                horizontal>
                 <TouchableOpacity
                   onPress={() => {
                     this.setState({
@@ -390,8 +383,7 @@ class UserInfo extends Component {
                     this.state.myselfBtn == true
                       ? styles.buttonRadioPress
                       : styles.buttonRadio
-                  }
-                >
+                  }>
                   <Text style={styles.RadioButtonTextStyle}>Myself</Text>
                 </TouchableOpacity>
 
@@ -413,8 +405,7 @@ class UserInfo extends Component {
                     this.state.fatherBtn == true
                       ? styles.buttonRadioPress
                       : styles.buttonRadio
-                  }
-                >
+                  }>
                   <Text style={styles.RadioButtonTextStyle}>Father</Text>
                 </TouchableOpacity>
 
@@ -436,8 +427,7 @@ class UserInfo extends Component {
                     this.state.motherBtn == true
                       ? styles.buttonRadioPress
                       : styles.buttonRadio
-                  }
-                >
+                  }>
                   <Text style={styles.RadioButtonTextStyle}>Mother</Text>
                 </TouchableOpacity>
 
@@ -459,8 +449,7 @@ class UserInfo extends Component {
                     this.state.husbandBtn == true
                       ? styles.buttonRadioPress
                       : styles.buttonRadio
-                  }
-                >
+                  }>
                   <Text style={styles.RadioButtonTextStyle}>Husband</Text>
                 </TouchableOpacity>
 
@@ -482,8 +471,7 @@ class UserInfo extends Component {
                     this.state.wifeBtn == true
                       ? styles.buttonRadioPress
                       : styles.buttonRadio
-                  }
-                >
+                  }>
                   <Text style={styles.RadioButtonTextStyle}>Wife</Text>
                 </TouchableOpacity>
 
@@ -505,8 +493,7 @@ class UserInfo extends Component {
                     this.state.sonBtn == true
                       ? styles.buttonRadioPress
                       : styles.buttonRadio
-                  }
-                >
+                  }>
                   <Text style={styles.RadioButtonTextStyle}>Son</Text>
                 </TouchableOpacity>
 
@@ -528,8 +515,7 @@ class UserInfo extends Component {
                     this.state.daughterBtn == true
                       ? styles.buttonRadioPress
                       : styles.buttonRadio
-                  }
-                >
+                  }>
                   <Text style={styles.RadioButtonTextStyle}>Daughter</Text>
                 </TouchableOpacity>
 
@@ -551,8 +537,7 @@ class UserInfo extends Component {
                     this.state.otherBtn == true
                       ? styles.buttonRadioPress
                       : styles.buttonRadio
-                  }
-                >
+                  }>
                   <Text style={styles.RadioButtonTextStyle}>Other</Text>
                 </TouchableOpacity>
               </ScrollView>
@@ -637,8 +622,7 @@ class UserInfo extends Component {
                         this.state.maleBtn == true
                           ? styles.buttonRadioPress
                           : styles.buttonRadio
-                      }
-                    >
+                      }>
                       <Text style={styles.RadioButtonTextStyle}>Male</Text>
                     </TouchableOpacity>
                   </Col>
@@ -657,8 +641,7 @@ class UserInfo extends Component {
                         this.state.femaleBtn == true
                           ? styles.buttonRadioPress
                           : styles.buttonRadio
-                      }
-                    >
+                      }>
                       <Text style={styles.RadioButtonTextStyle}>Female</Text>
                     </TouchableOpacity>
                   </Col>
@@ -677,8 +660,7 @@ class UserInfo extends Component {
                         this.state.otherGenderBtn == true
                           ? styles.buttonRadioPress
                           : styles.buttonRadio
-                      }
-                    >
+                      }>
                       <Text style={styles.RadioButtonTextStyle}>Others</Text>
                     </TouchableOpacity>
                   </Col>
@@ -689,8 +671,7 @@ class UserInfo extends Component {
                 activeOpacity={0.5}
                 onPress={() => {
                   this.handleSubmitButton();
-                }}
-              >
+                }}>
                 <Text style={styles.buttonTextStyle}>Book An Appointment</Text>
               </TouchableOpacity>
             </ScrollView>
@@ -743,7 +724,7 @@ const styles = StyleSheet.create({
     height: 50,
     alignItems: "center",
     borderStyle: "solid",
-    borderWidth: 1,
+    borderWidth: 2,
     color: "rgba(0, 0, 0, 0.87)",
     backgroundColor: "rgb(255, 255, 255)",
     //boxSizing: "borderBox",
@@ -764,7 +745,6 @@ const styles = StyleSheet.create({
     height: 50,
     alignItems: "center",
     borderStyle: "solid",
-    borderWidth: 1,
     color: "rgba(0, 0, 0, 0.87)",
     backgroundColor: "rgb(255, 255, 255)",
     //boxSizing: 'borderBox',
@@ -776,7 +756,9 @@ const styles = StyleSheet.create({
     fontSize: 11,
     textAlign: "center",
     justifyContent: "center",
-    //border: "1px solid #7DE24E",
+    borderWidth: 2,
+    borderColor: "#7DE24E",
+    // border: "1px solid #7DE24E",
     marginRight: 12,
     paddingRight: 15,
     paddingLeft: 15,

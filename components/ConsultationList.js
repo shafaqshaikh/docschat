@@ -103,39 +103,34 @@ class ConsultationList extends Component {
             docID: data.id,
             name: data.userInfo.patientFName,
           });
-        }}
-      >
-        <View style={{ flexDirection: "row", flex: 1 }}>
-          <View
-            style={{
-              flexDirection: "column",
-              flex: 0.25,
-              alignItems: "center",
-            }}
-          >
-            <Image
-              style={{ height: 50, width: 50, borderRadius: 40 }}
-              source={data.doctorImage}
-            ></Image>
-          </View>
-
-          <View style={{ flexDirection: "column", flex: 0.5 }}>
-            <View style={{ flex: 1, flexDirection: "row" }}>
-              <Text style={{ fontSize: 14, color: "#222f2d" }}>
-                {data.doctorName}
-              </Text>
+        }}>
+        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+          <View style={{ flexDirection: "row" }}>
+            <View
+              style={{
+                backgroundColor: "#fff",
+              }}>
+              <Image
+                style={{ height: 60, width: 60, borderRadius: 40 }}
+                source={{ uri: data.doctorImage }}
+              />
             </View>
-            <View style={{ flex: 1, flexDirection: "row" }}>
-              <Text style={{ color: "grey" }}>
+
+            <View
+              style={{
+                flexDirection: "column",
+                paddingLeft: 16,
+                justifyContent: "space-between",
+              }}>
+              <Text style={styles.dr_name}>{data.doctorName}</Text>
+
+              <Text style={styles.dept_name}>
                 {department(data.department)}
               </Text>
             </View>
           </View>
-
-          <View style={{ flexDirection: "column", flex: 0.25 }}>
-            <Text style={{ fontSize: 11, color: "grey" }}>
-              {createdAt(data.createdAt)}
-            </Text>
+          <View>
+            <Text style={styles.cr_date}>{createdAt(data.createdAt)}</Text>
           </View>
         </View>
       </TouchableRipple>
@@ -210,11 +205,42 @@ const styles = StyleSheet.create({
     letterSpacing: 0.7,
   },
   chatlist: {
-    marginLeft: 12,
-    marginRight: 12,
     //boxShadow: 'rgb(20 33 60 / 18%) 0px 5px 12px',
-    paddingTop: 9,
-    paddingBottom: 9,
-    borderRadius: 5,
+    flex: 1,
+    borderRadius: 10,
+    paddingHorizontal: 14,
+    paddingVertical: 12,
+    shadowColor: "#000000",
+    shadowOpacity: 0.5,
+    shadowRadius: 5,
+    shadowOffset: {
+      height: 0,
+      width: 3,
+    },
+    elevation: 3,
+  },
+
+  // consultation: {},
+
+  dr_name: {
+    fontSize: 16,
+    fontStyle: "normal",
+    fontWeight: "600",
+    color: "#000",
+  },
+
+  dept_name: {
+    fontSize: 15,
+    fontStyle: "normal",
+    fontWeight: "600",
+    color: "#636363",
+  },
+
+  cr_date: {
+    fontSize: 13,
+    fontStyle: "normal",
+    fontWeight: "600",
+    color: "#636363",
+    paddingRight: 10,
   },
 });

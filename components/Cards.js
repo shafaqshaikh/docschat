@@ -19,53 +19,30 @@ class Card extends Component {
     const { container } = styles;
 
     return (
-      <View>
-        <View
-          style={{
-            flex: 1,
-            flexDirection: "row",
-            backgroundColor: "#89b8d4",
-            borderRadius: 10,
-            marginTop: 10,
-            marginLeft: 12,
-            marginRight: 12,
-          }}
-        >
+      <View style={{ padding: 10 }}>
+        <View style={styles.containerbox}>
           <View
             style={{
-              flex: 1.5,
               flexDirection: "column",
-              paddingLeft: 12,
-              margin: "auto",
+              justifyContent: "space-evenly",
+              alignContent: "space-around",
+              paddingLeft: 10,
+            }}>
+            <Text style={styles.hello}>Say Hello Dcotor.</Text>
+
+            <Text style={styles.best}>24/7 Video Consultations.</Text>
+
+            <Text style={styles.just}>Expert Help On Covid-19</Text>
+          </View>
+
+          <Image
+            resizeMode="cover"
+            style={{
+              height: 120,
+              width: 130,
+              borderBottomRightRadius: 10,
             }}
-          >
-            <View style={{ paddingBottom: 10 }}>
-              <Text style={styles.hello}>Say Hello Dcotor.</Text>
-            </View>
-
-            <View style={{ paddingBottom: 15 }}>
-              <Text style={styles.best}>24/7 Video Consultations.</Text>
-            </View>
-
-            <View>
-              <Text style={styles.just}>Expert Help On Covid-19</Text>
-            </View>
-          </View>
-
-          <View
-            style={{ flex: 1, flexDirection: "column", alignItems: "flex-end" }}
-          >
-            <Image
-              resizeMode="cover"
-              style={{
-                height: "auto",
-                width: "auto",
-                padding: 63,
-                borderBottomRightRadius: 10,
-              }}
-              source={require("../assets/doc.png")}
-            ></Image>
-          </View>
+            source={require("../assets/doc.png")}></Image>
         </View>
       </View>
     );
@@ -73,27 +50,38 @@ class Card extends Component {
 }
 
 const styles = StyleSheet.create({
+  containerbox: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    backgroundColor: "#89B8D4",
+    width: "100%",
+    borderRadius: 10,
+    marginTop: 10,
+  },
+
   hello: {
     //fontFamily: 'Nunito-ExtraBold',
     fontSize: 16,
     color: "ghostwhite",
     letterSpacing: 0.3,
-    color: "white",
+    color: "#fff",
+    fontWeight: "bold",
   },
   best: {
     //fontFamily: 'Nunito-Regular',
-    fontSize: 13,
+    fontSize: 14,
     color: "ghostwhite",
     letterSpacing: 0.3,
-    color: "white",
+    color: "#fff",
   },
   just: {
-    backgroundColor: "white",
+    backgroundColor: "#fff",
     borderRadius: 10,
+    textAlign: "center",
     //height: 'fit-content',
     padding: 5,
     //fontFamily: 'Nunito-SemiBold',
-    fontSize: 11,
+    fontSize: 13,
     color: "#5861a4",
     letterSpacing: 0.3,
     paddingLeft: 10,

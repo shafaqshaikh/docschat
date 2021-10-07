@@ -36,13 +36,15 @@ class TherapyPlan extends Component {
                   style={{
                     borderRadius: 10,
                     margin: 10,
-                    background: "rgb(150, 162, 184)",
-                    textAlign: "center",
-                  }}
-                >
+                    backgroundColor: "#a5a5a5",
+                  }}>
                   <Text
-                    style={{ color: "white", paddingTop: 3, paddingBottom: 3 }}
-                  >
+                    style={{
+                      color: "#fff",
+                      paddingTop: 3,
+                      paddingBottom: 3,
+                      textAlign: "center",
+                    }}>
                     Plan
                   </Text>
                 </View>
@@ -53,16 +55,14 @@ class TherapyPlan extends Component {
                     borderRadius: 10,
                     margin: 10,
                     background: "rgb(245, 247, 250)",
-                    textAlign: "center",
-                  }}
-                >
+                  }}>
                   <Text
                     style={{
                       color: "#a5a5a5",
                       paddingTop: 3,
                       paddingBottom: 3,
-                    }}
-                  >
+                      textAlign: "center",
+                    }}>
                     Details
                   </Text>
                 </View>
@@ -73,16 +73,14 @@ class TherapyPlan extends Component {
                     borderRadius: 10,
                     margin: 10,
                     background: "rgb(245, 247, 250)",
-                    textAlign: "center",
-                  }}
-                >
+                  }}>
                   <Text
                     style={{
                       color: "#a5a5a5",
                       paddingTop: 3,
                       paddingBottom: 3,
-                    }}
-                  >
+                      textAlign: "center",
+                    }}>
                     Checkout
                   </Text>
                 </View>
@@ -100,8 +98,9 @@ class TherapyPlan extends Component {
                 });
               }}
               //rippleColor="rgb(112 173 83)"
-              style={this.state.plan1 == true ? styles.selected : styles.ripple}
-            >
+              style={
+                this.state.plan1 == true ? styles.selected : styles.ripple
+              }>
               <Row>
                 <Col size={3}>
                   <View>
@@ -130,8 +129,9 @@ class TherapyPlan extends Component {
                 });
               }}
               //rippleColor="rgb(112 173 83)"
-              style={this.state.plan2 == true ? styles.selected : styles.ripple}
-            >
+              style={
+                this.state.plan2 == true ? styles.selected : styles.ripple
+              }>
               <Row>
                 <Text style={styles.recommended}>Recommended</Text>
                 <Col size={3}>
@@ -163,8 +163,9 @@ class TherapyPlan extends Component {
                 });
               }}
               //rippleColor="rgb(112 173 83)"
-              style={this.state.plan3 == true ? styles.selected : styles.ripple}
-            >
+              style={
+                this.state.plan3 == true ? styles.selected : styles.ripple
+              }>
               <Row>
                 <Col size={3}>
                   <View>
@@ -188,14 +189,13 @@ class TherapyPlan extends Component {
 
         <View
           style={{
-            position: "absolute",
+            // position: "absolute",
             bottom: 0,
             borderTopWidth: 1,
             borderStyle: "solid",
             borderTopColor: "#f2f2f2",
             backgroundColor: "white",
-          }}
-        >
+          }}>
           <TouchableRipple
             style={styles.buttonStyle}
             rippleColor="#486939"
@@ -204,8 +204,7 @@ class TherapyPlan extends Component {
                 plan: this.state.plan,
                 price: this.state.price,
               });
-            }}
-          >
+            }}>
             <Text style={styles.buttonTextStyle}>Continue</Text>
           </TouchableRipple>
         </View>
@@ -278,7 +277,7 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 10,
   },
   buttonStyle: {
-    backgroundColor: "#7DE24E",
+    backgroundColor: "rgb(125, 226, 78)",
     borderWidth: 0,
     color: "#FFFFFF",
     borderColor: "#7DE24E",
@@ -286,10 +285,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 10,
-    marginLeft: 55,
-    marginRight: 55,
-    marginTop: 15,
+    marginHorizontal: 30,
+    paddingVertical: 20,
     marginBottom: 15,
+    marginTop: 10,
+    letterSpacing: 0.3,
   },
   buttonTextStyle: {
     color: "#FFFFFF",
