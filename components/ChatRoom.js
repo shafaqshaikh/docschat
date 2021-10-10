@@ -54,7 +54,8 @@ export function ChatRoom({ navigation, route }) {
                   about: docRef.data().doctorAbout,
                 });
               }}
-              style={{ flex: 1, flexDirection: "row", alignItems: "center" }}>
+              style={{ flex: 1, flexDirection: "row", alignItems: "center" }}
+            >
               <Image
                 style={{
                   borderRadius: 66,
@@ -64,7 +65,8 @@ export function ChatRoom({ navigation, route }) {
                   marginTop: 4,
                 }}
                 source={require("../assets/therapist.jpg")}
-                source={docRef.data().doctorImage}></Image>
+                source={docRef.data().doctorImage}
+              ></Image>
               <Text>{docRef.data().doctorName}</Text>
             </TouchableOpacity>
           ),
@@ -100,7 +102,8 @@ export function ChatRoom({ navigation, route }) {
                     about: doc.data().about,
                   });
                 }}
-                style={{ flex: 1, flexDirection: "row", alignItems: "center" }}>
+                style={{ flex: 1, flexDirection: "row", alignItems: "center" }}
+              >
                 <Image
                   style={{
                     borderRadius: 66,
@@ -109,7 +112,8 @@ export function ChatRoom({ navigation, route }) {
                     marginRight: 13,
                     marginTop: 4,
                   }}
-                  source={doc.data().image}></Image>
+                  source={doc.data().image}
+                ></Image>
                 <Text>{doc.data().name}</Text>
               </TouchableOpacity>
             ),
@@ -354,7 +358,8 @@ export function ChatRoom({ navigation, route }) {
               paddingLeft: 12,
               alignItems: "center",
               width: width,
-            }}>
+            }}
+          >
             <View style={styles.border}>
               <Text style={styles.namePlan}>{item.user.name}</Text>
               <View style={styles.para}>
@@ -364,7 +369,8 @@ export function ChatRoom({ navigation, route }) {
                     lineHeight: 22,
                     letterSpacing: 0.2,
                     color: "rgb(34, 47, 45)",
-                  }}>
+                  }}
+                >
                   With Messaging Therapy™ you can message your personal licensed
                   therapist anytime, anywhere. Start improving your life today.
                 </Text>
@@ -376,7 +382,8 @@ export function ChatRoom({ navigation, route }) {
                   activeOpacity={0.5}
                   onPress={() => {
                     navigation.navigate("Therapy Plan");
-                  }}>
+                  }}
+                >
                   <Text style={styles.buttonTextStylePlan}>
                     Choose Your Plan
                   </Text>
@@ -402,7 +409,8 @@ export function ChatRoom({ navigation, route }) {
               backgroundColor: "rgb(239, 243, 250)",
               marginLeft: 15,
               borderRadius: 20,
-            }}>
+            }}
+          >
             <Text
               style={{
                 color: "#222f2d",
@@ -410,7 +418,8 @@ export function ChatRoom({ navigation, route }) {
                 lineHeight: 22,
                 fontSize: 16,
                 letterSpacing: 0.2,
-              }}>
+              }}
+            >
               Since when are you facing this condition?
             </Text>
             <View style={{ marginTop: 10, flex: 1, flexDirection: "row" }}>
@@ -434,7 +443,8 @@ export function ChatRoom({ navigation, route }) {
                       title: period,
                     },
                   ]);
-                }}>
+                }}
+              >
                 <Text style={styles.buttonTextStyle}>Submit</Text>
               </TouchableOpacity>
             </View>
@@ -484,7 +494,8 @@ export function ChatRoom({ navigation, route }) {
                         title: "Yes",
                       },
                     ]);
-                  }}>
+                  }}
+                >
                   <Text style={styles.quickReplies}>Yes</Text>
                 </TouchableRipple>
 
@@ -494,7 +505,8 @@ export function ChatRoom({ navigation, route }) {
                     handleQuick([
                       { value: item.quickReplies.values[1].value, title: "No" },
                     ]);
-                  }}>
+                  }}
+                >
                   <Text style={styles.quickReplies}>No</Text>
                 </TouchableRipple>
               </View>
@@ -512,7 +524,8 @@ export function ChatRoom({ navigation, route }) {
       enabled
       behavior={Platform.OS === "ios" ? "padding" : null}
       keyboardVerticalOffset={height}
-      style={{ flex: 1, backgroundColor: "white", height: 50 }}>
+      style={{ flex: 1, backgroundColor: "white", height: 50 }}
+    >
       <View style={{ flex: 1, overflow: "scroll" }}>
         <FlatList
           inverted
@@ -529,7 +542,8 @@ export function ChatRoom({ navigation, route }) {
           paddingLeft: 15,
           paddingRight: 15,
           marginBottom: 10,
-        }}>
+        }}
+      >
         <View style={{ flex: 1, flexDirection: "row" }}>
           <View style={[{ flex: 1, flexDirection: "row" }, styles.sendText]}>
             <View style={{ flex: 0.8 }}>
@@ -564,7 +578,8 @@ export function ChatRoom({ navigation, route }) {
               style={{
                 flex: 0.2,
                 alignItems: "flex-end",
-              }}>
+              }}
+            >
               <TouchableRipple
                 rippleColor="white"
                 activeOpacity={0.5}
@@ -584,10 +599,12 @@ export function ChatRoom({ navigation, route }) {
                       },
                     },
                   ]);
-                }}>
+                }}
+              >
                 <Image
                   style={{ height: 55, width: 55 }}
-                  source={require("../assets/send.png")}></Image>
+                  source={require("../assets/send.png")}
+                ></Image>
               </TouchableRipple>
             </View>
           </View>
@@ -739,7 +756,7 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
   },
   buttonStylePlan: {
-    backgroundColor: "rgb(125, 226, 78)",
+    backgroundColor: "#7DE24E",
     borderWidth: 0,
     color: "#FFFFFF",
     borderColor: "#7DE24E",
@@ -747,11 +764,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 10,
-    marginHorizontal: 30,
-    paddingVertical: 20,
+    marginLeft: 55,
+    marginRight: 55,
+    marginTop: 15,
     marginBottom: 15,
-    marginTop: 10,
-    letterSpacing: 0.3,
   },
   buttonTextStylePlan: {
     color: "#FFFFFF",

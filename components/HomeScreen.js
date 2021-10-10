@@ -15,6 +15,7 @@ import AsyncStorage from "@react-native-community/async-storage";
 import Carousel from "./Carousel";
 import ConsultationList from "./ConsultationList";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
+import { Platform } from "react-native";
 
 const HomeScreen = ({ navigation }) => {
   const [user, setUser] = useState(null);
@@ -45,8 +46,11 @@ const HomeScreen = ({ navigation }) => {
       style={{
         backgroundColor: "#fff",
         flex: 1,
-      }}>
-      <View style={styles.menubar}>
+      }}
+    >
+      <View
+        style={Platform.OS === "android" ? styles.menubar : styles.menubarIOS}
+      >
         <TouchableOpacity>
           <FontAwesome5
             name={"bars"}
@@ -54,6 +58,7 @@ const HomeScreen = ({ navigation }) => {
             onPress={() => navigation.openDrawer()}
           />
         </TouchableOpacity>
+        <Text style={{ fontSize: 25, marginLeft: 20 }}>MedAids</Text>
       </View>
       {/* <Header
         placement="left"
@@ -97,7 +102,8 @@ const HomeScreen = ({ navigation }) => {
             fontWeight: "600",
             color: "#363636",
             paddingBottom: 10,
-          }}>
+          }}
+        >
           Consultations
         </Text>
         {user !== null && (
@@ -111,7 +117,8 @@ const HomeScreen = ({ navigation }) => {
 export default HomeScreen;
 
 const styles = StyleSheet.create({
-  menubar: {
+  menubarIOS: {
+    marginTop: 40,
     width: "100%",
     backgroundColor: "#fff",
     shadowColor: "#000000",
@@ -121,6 +128,26 @@ const styles = StyleSheet.create({
       height: 1,
       width: 1,
     },
+
+    elevation: 2,
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    paddingHorizontal: 12,
+    paddingVertical: 12,
+  },
+  menubar: {
+    marginTop: 40,
+    width: "100%",
+    backgroundColor: "#fff",
+    shadowColor: "#000000",
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 1,
+      width: 1,
+    },
+
     elevation: 2,
     flexDirection: "row",
     justifyContent: "flex-start",

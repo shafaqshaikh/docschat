@@ -23,14 +23,16 @@ function TherapyPlanCheckout({ navigation }) {
                   borderRadius: 10,
                   margin: 10,
                   background: "rgb(245, 247, 250)",
-                }}>
+                }}
+              >
                 <Text
                   style={{
                     color: "#a5a5a5",
                     paddingTop: 3,
                     paddingBottom: 3,
                     textAlign: "center",
-                  }}>
+                  }}
+                >
                   Plan
                 </Text>
               </View>
@@ -41,14 +43,16 @@ function TherapyPlanCheckout({ navigation }) {
                   borderRadius: 10,
                   margin: 10,
                   background: "rgb(245, 247, 250)",
-                }}>
+                }}
+              >
                 <Text
                   style={{
                     color: "#a5a5a5",
                     paddingTop: 3,
                     paddingBottom: 3,
                     textAlign: "center",
-                  }}>
+                  }}
+                >
                   Details
                 </Text>
               </View>
@@ -59,14 +63,16 @@ function TherapyPlanCheckout({ navigation }) {
                   borderRadius: 10,
                   margin: 10,
                   backgroundColor: "#a5a5a5",
-                }}>
+                }}
+              >
                 <Text
                   style={{
                     color: "#fff",
                     paddingTop: 3,
                     paddingBottom: 3,
                     textAlign: "center",
-                  }}>
+                  }}
+                >
                   Checkout
                 </Text>
               </View>

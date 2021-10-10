@@ -103,15 +103,17 @@ class ConsultationList extends Component {
             docID: data.id,
             name: data.userInfo.patientFName,
           });
-        }}>
+        }}
+      >
         <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
           <View style={{ flexDirection: "row" }}>
             <View
               style={{
                 backgroundColor: "#fff",
-              }}>
+              }}
+            >
               <Image
-                style={{ height: 60, width: 60, borderRadius: 40 }}
+                style={{ height: 60, width: 60, borderRadius: 30 }}
                 source={{ uri: data.doctorImage }}
               />
             </View>
@@ -121,7 +123,8 @@ class ConsultationList extends Component {
                 flexDirection: "column",
                 paddingLeft: 16,
                 justifyContent: "space-between",
-              }}>
+              }}
+            >
               <Text style={styles.dr_name}>{data.doctorName}</Text>
 
               <Text style={styles.dept_name}>
@@ -211,7 +214,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 14,
     paddingVertical: 12,
     shadowColor: "#000000",
-    shadowOpacity: 0.5,
+    //shadowOpacity: 0.5,
     shadowRadius: 5,
     shadowOffset: {
       height: 0,
