@@ -153,14 +153,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     padding: 10,
     width: "100%",
-    shadowColor: "#000000",
-    shadowOffset: {
-      width: 0,
-      height: 3,
-    },
-    shadowRadius: 5,
-    shadowOpacity: 1.0,
-    elevation: 7,
   },
 
   home: {

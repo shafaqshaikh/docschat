@@ -4,9 +4,11 @@ import { FontAwesome, Entypo } from "@expo/vector-icons";
 import {
   View,
   Text,
+  Image,
   StyleSheet,
   TouchableOpacity,
   ScrollView,
+  SafeAreaView,
 } from "react-native";
 import Card from "./Cards";
 import Services from "./Services";
@@ -46,11 +48,9 @@ const HomeScreen = ({ navigation }) => {
       style={{
         backgroundColor: "#fff",
         flex: 1,
-      }}
-    >
+      }}>
       <View
-        style={Platform.OS === "android" ? styles.menubar : styles.menubarIOS}
-      >
+        style={Platform.OS === "android" ? styles.menubar : styles.menubarIOS}>
         <TouchableOpacity>
           <FontAwesome5
             name={"bars"}
@@ -58,7 +58,10 @@ const HomeScreen = ({ navigation }) => {
             onPress={() => navigation.openDrawer()}
           />
         </TouchableOpacity>
-        <Text style={{ fontSize: 25, marginLeft: 20 }}>MedAids</Text>
+
+        <Image
+          style={{ height: 40, width: 50, marginLeft: 14 }}
+          source={require("../assets/logo_dc.png")}></Image>
       </View>
       {/* <Header
         placement="left"
@@ -102,8 +105,7 @@ const HomeScreen = ({ navigation }) => {
             fontWeight: "600",
             color: "#363636",
             paddingBottom: 10,
-          }}
-        >
+          }}>
           Consultations
         </Text>
         {user !== null && (
@@ -118,7 +120,7 @@ export default HomeScreen;
 
 const styles = StyleSheet.create({
   menubarIOS: {
-    marginTop: 40,
+    // marginTop: 40,
     width: "100%",
     backgroundColor: "#fff",
     shadowColor: "#000000",
@@ -137,7 +139,7 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
   },
   menubar: {
-    marginTop: 40,
+    // marginTop: 40,
     width: "100%",
     backgroundColor: "#fff",
     shadowColor: "#000000",

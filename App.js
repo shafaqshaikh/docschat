@@ -1,6 +1,6 @@
 import React from "react";
 import Home from "./components/Home";
-import { LogBox } from "react-native";
+import { LogBox, SafeAreaView } from "react-native";
 
 // import LoadingScreen from './components/LoadingScreen'
 
@@ -26,7 +26,11 @@ export default function App() {
   //   'Nunito-LightItalic': require('./assets/fonts/Nunito-LightItalic.ttf')
   // });
 
-  return <Home />;
+  return (
+    <SafeAreaView style={{ flex: 1, height: "100%", width: "100%" }}>
+      <Home />
+    </SafeAreaView>
+  );
 }
 
 // const AppSwitchNavigator = createSwitchNavigator({

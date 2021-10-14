@@ -342,7 +342,7 @@ class UserInfo extends Component {
               </Pressable> */}
         </View>
 
-        <View style={{ position: "absolute", top: 36, width: WIDTH }}>
+        <View style={{ position: "absolute", top: 5, width: WIDTH, zIndex: 5 }}>
           <FlashMessage ref="myLocalFlashMessage" />
         </View>
 
@@ -727,6 +727,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     color: "rgba(0, 0, 0, 0.87)",
     backgroundColor: "rgb(255, 255, 255)",
+    borderColor: "#A9A9B0",
     //boxSizing: "borderBox",
     //fontFamily: 'Nunito',
     //boxShadow: '0 2px 5px 0 hsl(0deg 0% 82% / 50%)',
@@ -800,6 +801,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     color: "rgba(0, 0, 0, 0.87)",
     backgroundColor: "rgb(255, 255, 255)",
+    borderColor: "#A9A9B0",
     //boxSizing: 'borderBox',
     //fontFamily: 'Nunito-Light',
     //boxShadow: 'rgb(224 224 224) 0px 0px 6px 0px',
@@ -814,6 +816,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     color: "rgba(0, 0, 0, 0.87)",
     backgroundColor: "rgb(255, 255, 255)",
+    borderColor: "#A9A9B0",
     //boxSizing: 'borderBox',
     //fontFamily: 'Nunito-Light',
     //boxShadow: 'rgb(224 224 224) 0px 0px 6px 0px',

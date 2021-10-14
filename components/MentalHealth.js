@@ -217,8 +217,7 @@ class MentalHealth extends Component {
             }
           );
         }}
-        style={[styles.box, data.selectedClass]}
-      >
+        style={[styles.box, data.selectedClass]}>
         <Text style={{ fontSize: 13 }}>{data.title}</Text>
       </TouchableRipple>
     );
@@ -236,14 +235,12 @@ class MentalHealth extends Component {
             });
           });
         }}
-        style={styles.box}
-      >
+        style={styles.box}>
         <View style={{ flexDirection: "row" }}>
           <View style={{ flex: 4, alignItems: "center" }}>
             <Image
               style={{ height: 35, width: 47 }}
-              source={data.image}
-            ></Image>
+              source={data.image}></Image>
           </View>
 
           <View style={{ flex: 6, justifyContent: "center" }}>
@@ -257,8 +254,7 @@ class MentalHealth extends Component {
     return (
       <View style={{ flex: 1 }}>
         <View
-          style={{ flex: 0.9, paddingLeft: 5, paddingRight: 5, height: 100 }}
-        >
+          style={{ flex: 0.9, paddingLeft: 5, paddingRight: 5, height: 100 }}>
           <ScrollView>
             <View
               style={{
@@ -269,16 +265,14 @@ class MentalHealth extends Component {
                 marginTop: 8,
                 marginLeft: 7,
                 marginRight: 7,
-              }}
-            >
+              }}>
               <View
                 style={{
                   flex: 0.7,
                   paddingLeft: 12,
                   paddingTop: 13,
                   paddingBottom: 10,
-                }}
-              >
+                }}>
                 <View style={{ flex: 1 }}>
                   <Text style={styles.hello}>Say Hello Therapist.</Text>
                 </View>
@@ -295,8 +289,7 @@ class MentalHealth extends Component {
               <View style={{ flex: 0.3, alignItems: "center" }} size={1}>
                 <Image
                   style={{ height: 120, width: 60 }}
-                  source={require("../assets/pysch-phone.png")}
-                ></Image>
+                  source={require("../assets/pysch-phone.png")}></Image>
               </View>
             </View>
 
@@ -308,8 +301,7 @@ class MentalHealth extends Component {
                 paddingLeft: 11,
                 paddingRight: 17,
                 paddingBottom: 5,
-              }}
-            >
+              }}>
               <Text>Know Specialty ?</Text>
             </View>
 
@@ -327,14 +319,12 @@ class MentalHealth extends Component {
                       }
                     );
                   }}
-                  style={[styles.box, { paddingBottom: 16, paddingTop: 16 }]}
-                >
+                  style={[styles.box, { paddingBottom: 16, paddingTop: 16 }]}>
                   <View style={{ flexDirection: "row" }}>
                     <View style={{ flex: 4, alignItems: "center" }}>
                       <Image
                         style={{ height: 35, width: 47 }}
-                        source={this.state.specialty[0].image}
-                      ></Image>
+                        source={this.state.specialty[0].image}></Image>
                     </View>
 
                     <View style={{ flex: 6, justifyContent: "center" }}>
@@ -359,14 +349,12 @@ class MentalHealth extends Component {
                       }
                     );
                   }}
-                  style={[styles.box, { paddingBottom: 16, paddingTop: 16 }]}
-                >
+                  style={[styles.box, { paddingBottom: 16, paddingTop: 16 }]}>
                   <View style={{ flexDirection: "row" }}>
                     <View style={{ flex: 4, alignItems: "center" }}>
                       <Image
                         style={{ height: 35, width: 47 }}
-                        source={this.state.specialty[1].image}
-                      ></Image>
+                        source={this.state.specialty[1].image}></Image>
                     </View>
 
                     <View style={{ flex: 6, justifyContent: "center" }}>
@@ -393,14 +381,12 @@ class MentalHealth extends Component {
                       }
                     );
                   }}
-                  style={[styles.box, { paddingBottom: 15, paddingTop: 15 }]}
-                >
+                  style={[styles.box, { paddingBottom: 15, paddingTop: 15 }]}>
                   <View style={{ flexDirection: "row" }}>
                     <View style={{ flex: 4, alignItems: "center" }}>
                       <Image
                         style={{ height: 35, width: 47 }}
-                        source={this.state.specialty[2].image}
-                      ></Image>
+                        source={this.state.specialty[2].image}></Image>
                     </View>
 
                     <View style={{ flex: 6, justifyContent: "center" }}>
@@ -425,14 +411,12 @@ class MentalHealth extends Component {
                       }
                     );
                   }}
-                  style={[styles.box, { paddingBottom: 15, paddingTop: 15 }]}
-                >
+                  style={[styles.box, { paddingBottom: 15, paddingTop: 15 }]}>
                   <View style={{ flexDirection: "row" }}>
                     <View style={{ flex: 4, alignItems: "center" }}>
                       <Image
                         style={{ height: 35, width: 47 }}
-                        source={this.state.specialty[3].image}
-                      ></Image>
+                        source={this.state.specialty[3].image}></Image>
                     </View>
 
                     <View style={{ flex: 6, justifyContent: "center" }}>
@@ -459,14 +443,12 @@ class MentalHealth extends Component {
                       }
                     );
                   }}
-                  style={[styles.box, { paddingBottom: 15, paddingTop: 15 }]}
-                >
+                  style={[styles.box, { paddingBottom: 15, paddingTop: 15 }]}>
                   <View style={{ flexDirection: "row" }}>
                     <View style={{ flex: 4, alignItems: "center" }}>
                       <Image
                         style={{ height: 35, width: 47 }}
-                        source={this.state.specialty[4].image}
-                      ></Image>
+                        source={this.state.specialty[4].image}></Image>
                     </View>
 
                     <View style={{ flex: 6, justifyContent: "center" }}>
@@ -491,14 +473,12 @@ class MentalHealth extends Component {
                       }
                     );
                   }}
-                  style={[styles.box, { paddingBottom: 15, paddingTop: 15 }]}
-                >
+                  style={[styles.box, { paddingBottom: 15, paddingTop: 15 }]}>
                   <View style={{ flexDirection: "row" }}>
                     <View style={{ flex: 4, alignItems: "center" }}>
                       <Image
                         style={{ height: 35, width: 47 }}
-                        source={this.state.specialty[5].image}
-                      ></Image>
+                        source={this.state.specialty[5].image}></Image>
                     </View>
 
                     <View style={{ flex: 6, justifyContent: "center" }}>
@@ -526,8 +506,7 @@ class MentalHealth extends Component {
                 paddingLeft: 11,
                 paddingRight: 17,
                 paddingBottom: 5,
-              }}
-            >
+              }}>
               <Text>Know Your Symptom ?</Text>
             </View>
 
@@ -548,8 +527,7 @@ class MentalHealth extends Component {
               borderStyle: "solid",
               borderTopColor: "#f2f2f2",
               backgroundColor: "white",
-            }}
-          >
+            }}>
             <TouchableRipple
               style={styles.buttonStyle}
               rippleColor="#486939"
@@ -558,8 +536,7 @@ class MentalHealth extends Component {
                   problem: this.state.problem,
                   user: this.state.userData,
                 });
-              }}
-            >
+              }}>
               <Text style={styles.buttonTextStyle}>Next</Text>
             </TouchableRipple>
           </View>
@@ -581,6 +558,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     color: "rgba(0, 0, 0, 0.87)",
     backgroundColor: "rgb(255, 255, 255)",
+    borderColor: "#A9A9B0",
     //boxSizing: 'borderBox',
     //fontFamily: 'Nunito',
     //boxShadow: '0 2px 5px 0 hsl(0deg 0% 82% / 50%)',
